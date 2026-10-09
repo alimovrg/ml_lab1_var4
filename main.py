@@ -5,7 +5,11 @@ print(df.head())
 print(df.dtypes)
 
 # %% 2
-print(df[['date', 'price', 'yr_built', 'yr_renovated', 
-          'sqft_living', 'condition', 'grade', 'zipcode']].head(3))
+df2 = df[['date', 'price', 'yr_built', 'yr_renovated', 
+          'sqft_living', 'condition', 'grade',
+            'zipcode']].copy()
+df2['real_year'] = df2[['yr_built', 'yr_renovated']].max(axis=1)
+print(df2.head(3))
+
 
 # %%
