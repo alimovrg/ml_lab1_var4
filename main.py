@@ -49,3 +49,8 @@ norm = ['real_year', 'condition']
 for i in norm:
     df8[i] = ((df8[i] - df8[i].min()) / (df8[i].max() - df8[i].min()))
 print(df8[['real_year', 'condition']].head())
+
+# %% 9
+df9 = (df3['condition'].value_counts(normalize=True)
+       .sort_values(ascending=False).mul(100).round(2).reset_index())
+print(df9)
