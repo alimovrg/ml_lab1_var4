@@ -54,3 +54,10 @@ print(df8[['real_year', 'condition']].head())
 df9 = (df3['condition'].value_counts(normalize=True)
        .sort_values(ascending=False).mul(100).round(2).reset_index())
 print(df9)
+
+# %% 10
+rare_condition = df9.iloc[-1]['condition']
+join_df = df3.merge(df9, on='condition', how='left')
+rare_house = join_df[join_df['condition'] == rare_condition]
+zipcode = rare_house['zipcode'].value_counts().idxmax()
+print(zipcode)
