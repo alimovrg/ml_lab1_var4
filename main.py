@@ -21,3 +21,11 @@ df4 = df3[['real_year']].copy()
 df4['count'] = df4.groupby('real_year')['real_year'].transform('count')
 df4 = df4.drop_duplicates().sort_values(by='count')
 print(df4.head())
+
+# %% 5
+df5 = df4[['real_year', 'count']].copy()
+head2 = df5.head(2)['real_year'].tolist()
+tail2 = df5.tail(2)['real_year'].tolist()
+list1 = head2 + tail2
+df5 = df3[df3['real_year'].isin(list1)]
+print(df5['real_year'].value_counts())
