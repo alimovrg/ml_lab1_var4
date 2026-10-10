@@ -42,3 +42,10 @@ print(df6['real_year'].isin([2014, 2005, 1935, 1934]).sum())
 # %% 7
 df7 = df6['condition'].value_counts().sort_values(ascending=False).reset_index()
 print(df7)
+
+# %% 8
+df8 = df3.copy()
+norm = ['real_year', 'condition']
+for i in norm:
+    df8[i] = ((df8[i] - df8[i].min()) / (df8[i].max() - df8[i].min()))
+print(df8[['real_year', 'condition']].head())
