@@ -12,4 +12,6 @@ df2['real_year'] = df2[['yr_built', 'yr_renovated']].max(axis=1)
 print(df2.head(3))
 
 
-# %%
+# %% 3
+df3 = df2.sort_values(by=['real_year', 'sqft_living', 'condition'])
+print(df3.head(3))
