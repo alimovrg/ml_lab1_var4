@@ -40,7 +40,8 @@ print(len(df5) + len(df6))
 print(df6['real_year'].isin([2014, 2005, 1935, 1934]).sum())
 
 # %% 7
-df7 = df6['condition'].value_counts().sort_values(ascending=False).reset_index()
+df7 = (df6['condition'].value_counts()
+.sort_values(ascending=False).reset_index())
 print(df7)
 
 # %% 8
